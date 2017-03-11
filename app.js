@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function(request, response){
-	throw 'Error'
-	// response.send('OK');
-});
+app.use(express.static('public'));
+
+var todos = require('./routes/todos');
+app.use('/todos', todos);
 
 module.exports = app;
